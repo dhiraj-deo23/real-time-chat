@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
+
+    <title>Chat APP</title>
+  </head>
+  <body>
+    <div class="chat">
+      <div class="chat__sidebar"></div>
+      <div class="chat__main">
+        <div id="messages" class="chat__messages"></div>
+        <div class="compose">
+          <form class="msg-form">
+            <input type="text" id="msg-input" placeholder="message" required />
+            <button id="btn-msg">Send</button>
+          </form>
+          <br />
+          <button id="btn-loc">Send Location</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="test/html" id="message-template">
+      <div class="message sent" >
+            <p>
+                <span class="message__name">{{username}}</span>
+                <span class="message__meta">[{{createdAt}}]</span>
+            </p>
+        <p> {{message}} </p>
+      </div>
+    </script>
+
+    <script type="test/html" id="sent-message-template">
+      <div style="text-align: right; margin-right: 1rem" class="message">
+        <p>
+            <span class="message__name">{{username}}</span>
+            <span class="message__meta">[{{createdAt}}]</span>
+        </p>
+        <p> {{message}} </p>
+      </div>
+    </script>
+
+    <script type="test/html" id="location-template">
+      <div class="message">
+        <p>
+            <span class="message__name">{{username}}</span>
+            <span class="message__meta">[{{createdAt}}]</span>
+        </p>
+        <a href={{url}} target="_blank">Click to get Location</a>
+      </div
+    </script>
+
+    <script type="test/html" id="sidebar-template">
+      <h2 class="room-title">{{room}}</h2>
+      <h1 class="list-title">Users</h1>
+      <ul class="users">
+          {{#users}}
+              <li class="user">{{username}}</li>
+          {{/users}}
+      </ul>
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/chat.js"></script>
+  </body>
+</html>
