@@ -72,7 +72,7 @@ form.addEventListener("submit", (e) => {
   msgBtn.setAttribute("disabled", "disabled");
   socket.emit("clientMessage", msgInput.value, ({ status, optionalMsg }) => {
     if (optionalMsg !== null) {
-      return alert(optionalMsg);
+      alert(optionalMsg);
     }
     const html = Mustache.render(sentMsgTemplate, {
       message: msgInput.value,
